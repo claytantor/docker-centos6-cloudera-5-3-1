@@ -1,6 +1,11 @@
 FROM centos:centos6
 MAINTAINER Clay Graham <claytantor@gmail.com>
 
+
+#install and start ntp
+RUN yum -y install ntp ntpdate ntp-doc
+RUN ntpdate pool.ntp.org
+
 #oracle java jdk8
 RUN yum update -y
 RUN yum install -y wget && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.rpm
