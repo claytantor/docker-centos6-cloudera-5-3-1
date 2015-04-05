@@ -1,5 +1,5 @@
-# docker-cloudera-5-3-1
-docker-cloudera-5-3-1
+# docker-centos-cloudera-5-3-1
+docker-centos6-cloudera-5-3-1
 
 
 ## building
