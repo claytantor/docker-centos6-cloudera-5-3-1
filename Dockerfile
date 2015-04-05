@@ -14,6 +14,18 @@ RUN rpm -ivh jdk-8u5-linux-x64.rpm && rm jdk-8u5-linux-x64.rpm
 RUN wget http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.repo --output-document=/etc/yum.repos.d/cloudera-manager.repo
 RUN yum -y install cloudera-manager-server-db-2 cloudera-manager-daemons cloudera-manager-server cloudera-manager-agent cloudera-manager-daemons
 
+#make the directories
+RUN mkdir /var/cm
+RUN mkdir /var/cm/datanode1
+RUN mkdir /var/cm/datanode2
+RUN mkdir /var/cm/nn
+RUN mkdir /var/cm/snn
+RUN mkdir /var/cm/nm
+RUN mkdir /var/cm/impala
+RUN mkdir /var/cm/hive
+RUN sudo chmod -R 775 /var/cm
+
+
 
 ADD scripts/hosts_base /root/hosts_base
 ADD scripts/start.sh /root/start.sh

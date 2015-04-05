@@ -15,3 +15,8 @@ docker-centos6-cloudera-5-3-1
       -p 25020:25020 -p 18080:18080 -p 7077:7077 -p 7078:7078 -p 9000:9000 \
       -p 9001:9001 -t claytantor/docker-centos6-cloudera-5-3-1:latest /bin/bash
 
+# TODO
+set swapiness to 0 = http://askubuntu.com/questions/103915/how-do-i-configure-swappiness
+make datanode, nn, and snn directories for user hdfs, make sm directory in /var/lib/hadoop-yarn for yarn 
+vi /etc/sysconfig/network needs to have the hostname configured in /etc/hosts, restart networking http://www.rackspace.com/knowledge_center/article/centos-hostname-change
+
