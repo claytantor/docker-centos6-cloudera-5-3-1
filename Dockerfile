@@ -1,7 +1,6 @@
 FROM centos:centos6
 MAINTAINER Clay Graham <claytantor@gmail.com>
 
-
 #install and start ntp
 RUN yum -y install ntp ntpdate ntp-doc
 RUN ntpdate pool.ntp.org

@@ -3,7 +3,7 @@ docker-cloudera-5-3-1
 
 
 ## building
-    docker-cloudera-5-3-1]# docker build -t claytantor/docker-cloudera-5-3-1:latest .
+    docker build -t claytantor/docker-centos6-cloudera-5-3-1:latest .
 
 ## running
     docker run --privileged=true -i -p 49122:22 -p 2181:2181 -p 7180:7180 \
@@ -13,5 +13,5 @@ docker-cloudera-5-3-1
       -p 10020:10020 -p 19888:19888 -p 41370:41370 -p 38319:38319 \
       -p 10000:10000 -p 21050:21050 -p 25000:25000 -p 25010:25010 \
       -p 25020:25020 -p 18080:18080 -p 7077:7077 -p 7078:7078 -p 9000:9000 \
-      -p 9001:9001 -t claytantor/docker-cloudera-5-3-1:latest /bin/bash
+      -p 9001:9001 -t claytantor/docker-centos6-cloudera-5-3-1:latest /bin/bash
 
