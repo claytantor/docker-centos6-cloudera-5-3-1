@@ -18,6 +18,7 @@ RUN yum -y install cloudera-manager-server-db-2 cloudera-manager-daemons clouder
 RUN mkdir /var/cm
 RUN mkdir /var/cm/datanode1
 RUN mkdir /var/cm/datanode2
+RUN mkdir /var/cm/datanode3
 RUN mkdir /var/cm/nn
 RUN mkdir /var/cm/snn
 RUN mkdir /var/cm/nm
@@ -33,7 +34,7 @@ RUN chmod -R 777 /var/cm
 #this needs to be tested and verified
 RUN chown -R hdfs:hadoop /var/cm/datanode1
 RUN chown -R hdfs:hadoop /var/cm/datanode2
-
+RUN chown -R hdfs:hadoop /var/cm/datanode3
 
 ADD scripts/hosts_base /root/hosts_base
 ADD scripts/start.sh /root/start.sh
