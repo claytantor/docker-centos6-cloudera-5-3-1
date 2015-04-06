@@ -1,5 +1,5 @@
 # docker-centos-cloudera-5-3-1
-docker-centos6-cloudera-5-3-1 is an attempt to create a docker equiv to the clouder quickstart. This is a stretch goal though because there are so many components, user roles and networking configurations required to get cloudera manager working that getting it to work inside a docker container is **very hard indeed**. I tried a ton of the docker CM images, most fail miserably. This one at least installs completely.   
+docker-centos6-cloudera-5-3-1 is an attempt to create a docker equiv to the cloudera manager quickstart. This is a stretch goal though because there are so many components, user roles and networking configurations required to get cloudera manager working that getting it to work inside a docker container is **very hard indeed**. I tried a ton of the docker CM images, most fail miserably. This one at least installs completely.   
 
 ## building
     docker build -t claytantor/docker-centos6-cloudera-5-3-1:latest .
