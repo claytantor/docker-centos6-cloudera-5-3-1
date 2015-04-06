@@ -1,6 +1,8 @@
 FROM centos:centos6
 MAINTAINER Clay Graham <claytantor@gmail.com>
 
+RUN sysctl vm.swappiness=0
+
 #install and start ntp
 RUN yum -y install ntp ntpdate ntp-doc
 RUN ntpdate pool.ntp.org
