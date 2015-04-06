@@ -15,6 +15,9 @@ RUN wget http://archive.cloudera.com/cm5/redhat/6/x86_64/cm/cloudera-manager.rep
 RUN yum -y install cloudera-manager-server-db-2 cloudera-manager-daemons cloudera-manager-server cloudera-manager-agent cloudera-manager-daemons
 
 #make the directories
+RUN groupadd hadoop
+RUN useradd -g hadoop hdfs 
+
 RUN mkdir /var/cm
 RUN mkdir /var/cm/datanode1
 RUN mkdir /var/cm/datanode2
