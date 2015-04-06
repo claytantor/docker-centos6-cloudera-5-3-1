@@ -18,8 +18,8 @@ docker-centos6-cloudera-5-3-1 is an attempt to create a docker equiv to the clou
 when you run the manager startup you will need to set the directories for the datanodes, namenodes, secondary namenodes etc. because docker's device mapper confuses the manager's mappings. The dockerfile creates the directories and sets the perms to 777 (dubious approach, see TODOs) so that its a little easier during setup but the only way I have found to set these in manually during setup. Here are the dirs to use:
 
 ## Directories
-| Diectory                         | Use             |
-| -------------------------------- |:---------------:| 
+| Directory                        | Use             |
+| -------------------------------- | --------------- | 
 | /var/cm/datanode1                | Datanode1       | 
 | /var/cm/datanode2                | Datanode2       |
 | /var/cm/datanode3                | Datanode3       |
