@@ -1,6 +1,5 @@
 # docker-centos-cloudera-5-3-1
-docker-centos6-cloudera-5-3-1
-
+docker-centos6-cloudera-5-3-1 is an attempt to create a docker equiv to the clouder quickstart. This is a stretch goal though because there are so many components, user roles and networking configurations required to get cloudera manager working that getting it to work inside a docker container is _very hard_ indeed. I tried a ton of the docker CM images, most fail miserably. This one at least installs completely.   
 
 ## building
     docker build -t claytantor/docker-centos6-cloudera-5-3-1:latest .
@@ -15,8 +14,23 @@ docker-centos6-cloudera-5-3-1
       -p 25020:25020 -p 18080:18080 -p 7077:7077 -p 7078:7078 -p 9000:9000 \
       -p 9001:9001 -p 8888:8888 -t claytantor/docker-centos6-cloudera-5-3-1:latest /bin/bash
 
-# TODO
-set swapiness to 0 = http://askubuntu.com/questions/103915/how-do-i-configure-swappiness
-make datanode, nn, and snn directories for user hdfs, make sm directory in /var/lib/hadoop-yarn for yarn 
-vi /etc/sysconfig/network needs to have the hostname configured in /etc/hosts, restart networking http://www.rackspace.com/knowledge_center/article/centos-hostname-change
+# configuring 
+when you run the manager startup you will need to set the directories for the datanodes, namenodes, secondary namenodes etc. because docker's device mapper confuses the manager's mappings. The dockerfile creates the directories and sets the perms to 777 (dubious approach, see TODOs) so that its a little easier during setup but the only way I have found to set these in manually during setup. Here are the dirs to use:
 
+/var/cm/datanode1 - Datanode1
+/var/cm/datanode2 - Datanode1
+/var/cm/datanode3 - Datanode1
+/var/cm/nn - Name Node
+/var/cm/snn - Secondary Name Node
+/var/cm/nm - NM dir
+/var/cm/impala - Impala data dir
+/var/cm/hive - Hive data dir
+/var/cm/cloudera-host-monitor - Hostmontor data
+/var/cm/cloudera-service-monitor - Service data dir
+/var/cm/sqoop2 - Sqoop Data dir
+/var/cm/zookeeper - Zookeeper data dir
+
+# TODO
+* vi /etc/sysconfig/network needs to have the hostname configured in /etc/hosts, restart networking 
+* http://www.rackspace.com/knowledge_center/article/centos-hostname-change
+* add chown for each data directoy so 777 is not required
