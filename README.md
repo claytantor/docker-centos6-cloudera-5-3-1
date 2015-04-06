@@ -13,6 +13,11 @@ docker-centos6-cloudera-5-3-1 is an attempt to create a docker equiv to the clou
       -p 10000:10000 -p 21050:21050 -p 25000:25000 -p 25010:25010 \
       -p 25020:25020 -p 18080:18080 -p 7077:7077 -p 7078:7078 -p 9000:9000 \
       -p 9001:9001 -p 8888:8888 -t claytantor/docker-centos6-cloudera-5-3-1:latest /bin/bash
+      
+## startup.sh
+Once you run as privileged you will want to startup the services. The script will startup the embedded postgres database, the CM server, and a local CM agent.
+
+     /root/startup.sh
 
 # configuring 
 when you run the manager startup you will need to set the directories for the datanodes, namenodes, secondary namenodes etc. because docker's device mapper confuses the manager's mappings. The dockerfile creates the directories and sets the perms to 777 (dubious approach, see TODOs) so that its a little easier during setup but the only way I have found to set these in manually during setup. Here are the dirs to use:
