@@ -7,8 +7,7 @@ echo "${IP_ADDRESS} ${HOSTNAME}.localdomain.net ${HOSTNAME}">/root/hosts
 cat /root/hosts_base>>/root/hosts
 cp /root/hosts /etc/hosts
 
-#chown hdfs:hadoop -R /usr/local/hadoop_store
-#chmod 777 -R /usr/local/hadoop_store
+sysctl vm.swappiness=0
 
 # start services
 /etc/init.d/ntpd start
